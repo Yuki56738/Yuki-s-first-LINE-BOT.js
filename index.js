@@ -45,6 +45,13 @@ function handleEvent(event) {
         text: `${event.message.text}\nなにかお手伝いできることはありますか？`
 
     }
+    const lonely = {
+        type: 'text',
+        text: 'ええ、私もたまに寂しくなることがあります。'
+    }
+    if (event.message.text.includes('寂しい')){
+        return client.replyMessage(event.replyToken, lonely)
+    }
     return client.replyMessage(event.replyToken, echo)
 }
 

@@ -42,7 +42,7 @@ function handleEvent(event) {
     }
     const echo = {
         type: 'text',
-        text: `${event.message.text} なにかお手伝いできることはありますか？`
+        text: `${event.message.text}\nなにかお手伝いできることはありますか？`
 
     }
     return client.replyMessage(event.replyToken, echo)

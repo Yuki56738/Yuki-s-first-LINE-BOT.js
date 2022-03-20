@@ -49,8 +49,32 @@ function handleEvent(event) {
         type: 'text',
         text: 'ええ、私もたまに寂しくなることがあります。'
     }
-    if (event.message.text.includes('寂しい')){
+    const love = {
+        type: 'text',
+        text: 'すきだよ。'
+    }
+    const yoshiyoshi = {
+        type: 'text',
+        text: 'よしよし〜'
+    }
+
+    let msg = event.message.text
+    if (msg.includes('寂しい')){
         return client.replyMessage(event.replyToken, lonely)
+    }
+    if (msg.includes('好き') || msg.includes('すき')) {
+        return client.replyMessage(event.replyToken, love)
+    }
+    if (msg.includes('構って') || msg.includes('かまって')) {
+        return client.replyMessage(event.replyToken, yoshiyoshi)
+    }
+    switch (msg){
+        case 'さびしい':
+            return client.replyMessage(event.replyToken, lonely)
+            break
+        case 'さみしい':
+            return client.replyMessage(event.replyToken, lonely)
+            break
     }
     return client.replyMessage(event.replyToken, echo)
 }
